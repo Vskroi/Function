@@ -128,9 +128,9 @@ console.log(oneDevideByTwo( 21 , 2 ))
 // moodToday("happy") ➞ "Today, I am feeling happy"
 // moodToday( ) ➞ "Today, I am feeling neuter"
 
-function moodTodey(stt){
+function moodTodey(str){
    
-  return `Todey, i am feeling ${stt}`
+  return `Todey, i am feeling ${str}`
 }
 console.log(moodTodey('happy'))
  
@@ -139,25 +139,51 @@ console.log(moodTodey('happy'))
 // Write a function that validates whether two strings are identical. Make it case insensitive.
 // match(“HELLO WORLD”) and (”hello world”) → true
 // match("mask", "mAskinG") ➞ false
- 
+ function match(match,match2){
+    if(match.toUpperCase()=== match2.toUpperCase()){return 'true'}
+    else {return 'false'
+    }
+ }
+ console.log(match('broo','BRoO'))
 // Exercise 10
  
 // Create a function that takes a string as argument and returns "upper" if all the letters in a word are uppercase, "lower" if lowercase and "mixed" for any mix of the two.
 // getCase("javascript..") ➞ "lower"
 // getCase("SHOUT!") ➞ "upper"
- 
+ function getCase(str){
+  
+    if(str==str.toUpperCase()){return 'upper'}
+    else if (str==str.toLowerCase()){return 'lower'}
+    else {return 'upperlower'}
+ }
+ console.log(getCase('QQ'))
 // Exercise 11
  
 // Create a function that takes  a string as argument (of a person’s first and last name) and returns a string with the first and last name swapped.
 // swapName("Ada Lovelace") ➞ "Lovelace Ada"
 // swapName(“Alan Turing”)➞  “Turing Alan”
+function swapName(str){
+    let p = str.split(' ').reverse().join(' ')
+    return p
+}
+console.log(swapName('asas rrr'))
+/* function swapName(str,str2){
+    
+    return str+ ' ' +str2
+}
+console.log(swapName('qwer','1234')) */
  
 // Exercise 12
+
  
 // Create a function that takes a string and returns a string with its letters in alphabetical order.
 // AlphabetSoup("javascript") ➞ "aacijprstv"
 // AlphabetSoup(“simplon”) ➞”ilmnops”
- 
+ function AlphabetSoup(str){
+    let str2 =str.split('').sort().join('')
+    return str2
+ }
+ console.log(AlphabetSoup('afsasdfa'))
 // Exercise 13
  
 // Create a function that takes a number as argument and returns the incrementing (+1) for each odd number and decrementing (-1) for each even number.
@@ -165,6 +191,11 @@ console.log(moodTodey('happy'))
 // incrementOrDecrement(2) ➞3
  
 //console.log("functions2");
+function incrementOrDecrement(number){
+    if(number%2==0){return number+1}
+    else {return number-1}
+}
+console.log(incrementOrDecrement(2))
  
 // Exercise 1
  
@@ -179,7 +210,17 @@ console.log(moodTodey('happy'))
 // Examples:
 // tipAmount(100, 'good') --> 20
 // tipAmount(40, 'fair') --> 6
- 
+ function tipAmount(number){
+    if(number > 40 ){
+        return number/5
+    }
+else if ( number <= 40){
+    return number/5
+}
+else if (number < 20)
+    return (10/number)*100
+ }
+ console.log(tipAmount(100))
 // Exercise 2
  
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,6 +231,18 @@ console.log(moodTodey('happy'))
 // Examples:
 // totalAmount(100, 'good') --> 120
 // totalAmount(40, 'fair') --> 46
+function totalAmount(number){
+    if(number > 40 ){
+        return (20/number)*100 + number
+    }
+else if ( number <= 40){
+    return (2.4/number)*100 + number
+}
+else if (number < 20)
+    return (10/number)*100 + number
+
+ }
+ console.log(totalAmount(40))
  
 // Exercise 3
  
@@ -201,6 +254,18 @@ console.log(moodTodey('happy'))
 // Examples:
 // splitAmount(100, 'good', 5) --> 24
 // splitAmount(40, 'fair', 2) --> 23
+function splitAmount(number){
+    if(number > 40 ){
+        return ((20/number)*100 + number) / 5
+    }
+else if ( number <= 40){
+    return ((2.4/number)*100 + number ) / 3
+}
+else if (number < 20)
+    return ((10/number)*100 + number ) / 5
+
+ }
+ console.log(splitAmount(40))
  
 // Exercise 4
  
@@ -217,6 +282,14 @@ console.log(moodTodey('happy'))
 // isVowel('A') --> true
 // isVowel(99) --> false
 // isVowel({e: 'Elephant'}) --> false
+function isVowel(str){
+  let char = str.toLowerCase()
+    if(char == 'a' || char == 'e' || char == 'e' || char == 'i' || char == 'o' || char == 'u'){
+        return 'true'
+    }
+    else {return 'false'}
+}
+console.log(isVowel('1'))
  
 // Exercise 5
  
@@ -228,7 +301,23 @@ console.log(moodTodey('happy'))
 // rockPaperScissors('rock', 'scissors') --> 'player 1'
 // rockPaperScissors('rock', 'paper') --> 'player 2'
 // rockPaperScissors('paper', 'paper') --> 'draw'
- 
+ function rockPaperScissors(player1, player2){
+    
+    if (player1 == 'rock' && player2 == 'scissors'){
+        return 'player1'
+    }
+    else if (player1 == 'paper' && player2 == 'rock'){return 'player1'}
+    else if (player1 == 'scirssors' && player2 == 'paper'){return 'player1'}
+    else if (player2 == 'rock' && player1 == 'scissors'){
+        return 'player2'
+    }
+    else if (player2 == 'paper' && player1 == 'rock'){return 'player2'}
+    else if (player2 == 'scirssors' && player1 == 'paper'){return 'player2'}
+    else if (player2 == 'rock' && player1 == 'rock'){return 'draw'}
+    else if (player2 == 'paper' && player1 == 'paper'){return 'draw'}
+    else if (player2 == 'scirssors' && player1 == 'scirssors'){return 'draw'}
+    else { return 'Error'}
+ }
 // Exercise 6
  
 // Write a function "numberJoinerWhile" which is given a start number and an end number.
@@ -250,7 +339,17 @@ console.log(moodTodey('happy'))
 // numberJoinerFancy(1, 10) --> '1_2_3_4_5_6_7_8_9_10'
 // numberJoinerFancy(1, 5, '~') --> 1~2~3~4~5
 // numberJoinerFancy(3, 6, '***BANANAS***') --> 1***BANANAS***2***BANANAS***3
- 
+function numberJoinerFancy(start, end){
+/* let i = start */
+let slade = ''
+while( start < end ){
+    slade += start + '_'
+    start++ 
+    
+}
+return slade + end
+}
+console.log(numberJoinerFancy(1,11))
 // Exercise 7
  
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -258,7 +357,12 @@ console.log(moodTodey('happy'))
 //
 // Example:
 // reverse("skoob") --> "books"
- 
+ function reverse(str){
+    let str2 = str.split('').reverse().join('')
+    return str2
+ }
+ console.log(reverse('skoob'))
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "findLongestWord" that takes a string of words and returns
 // the longest word in that string. If there are multiple words with the same
@@ -266,7 +370,11 @@ console.log(moodTodey('happy'))
 //
 // Example:
 // findLongestWord('a book full of dogs') --> 'book'
- 
+ function findLongestWord(str){
+    let str2 = str.split(' ').splice(1,1).join('')
+    return str2
+ }
+ console.log(findLongestWord('a book full of dogs'))
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "nicer"
 // It should clean up the language in its input sentence.
@@ -275,7 +383,11 @@ console.log(moodTodey('happy'))
 // Example:
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
- 
+ function nicer(str){
+    let str2 = str.split('heck').join('')
+    return str2
+ }
+ console.log(nicer('mom get the heck in here and bring me a darn sandwich.'))
 // Exercise 8
  
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -286,7 +398,16 @@ console.log(moodTodey('happy'))
 // Examples:
 // capitalizeAll('hello world') --> 'Hello World'
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
- 
+function capitalize(str) 
+{
+    str = str.split(" ")
+    for (let i = 0, x = str.length; i < x; i++) {
+        str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+    }
+    return str.join(' ')
+}
+
+ console.log(capitalize('hello world'))
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "split" that does the same thing as String.split
 // It should take two inputs: (1) a string and (2) a delimiter string
@@ -297,7 +418,25 @@ console.log(moodTodey('happy'))
 // split('a-b-c', '-') --> ['a', 'b', 'c']
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
+ function split(str){
  
+    
+    return str.split('-')
+ }
+ console.log(split('a-b-c', '-'))
+ function splitXX(str){
+    let str2 = str.split('xx')
+    
+    return str2
+ }
+ console.log(splitXX('APPLExxBANANAxxCHERRY', 'xx'))
+ function splitXYZ(str){
+    let str2 = str.split()
+    
+    return str2
+ }
+ console.log(splitXYZ('xyz', 'r'))
+
 // Exercise 9
  
 // Write a function "max" that takes an array of numbers returns the highest
@@ -308,15 +447,28 @@ console.log(moodTodey('happy'))
 // the sum of the numbers.
 // Example:
 // sumNumbers([1, 4, 8]) --> 13
+function sumNumbers(number){
+    let number2 = 0
+    number2 = number2 +  number[0]
+    number2 = number2 +  number[1]
+    number2 = number2 +  number[0,2]
+return number2
+}
+console.log(sumNumbers([1, 4, 8]))
  
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "positives" which is given an array of numbers and
 // returns a new array containing only the positive numbers within the given array.
 // Examples:
-// positives([1, -3, 5, -3, 0]) --> [1, 5]
+// number2 = number2 +  number[0]
 // positives([1, 2, 3]) --> [1, 2, 3]
 // positives([-1, -2, -3]) --> []
- 
+ function positives(number){
+    for(let i = 0; i<=number; i++){
+        if(number[i]>0){return number[i]}
+    }
+ }
+ console.log(positives([1, 2, 3]))
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "evens" which takes an array of numbers and returns a new
 // array containing only the even numbers in the given array.
